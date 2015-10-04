@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8" />
+        <title>{% block title %}Welcome!{% endblock %}</title>
+        {% block stylesheets %}{% endblock %}
+        <link rel="icon" type="image/x-icon" href="{{ asset('favicon.ico') }}" />
+    </head>
+    <body>
+    {{ clank_client() }}
+
+        {% block body %}{% endblock %}
+
+    <script type="text/javascript">
+        var myClank = Clank.connect("ws://localhost:8080");
+        myClank.on("socket/connect", function(session){
+
+            //the callback function in "subscribe" is called everytime an event is published in that channel.
+            session.subscribe("acme/channel", function(uri, payload){
+                console.log("Received message", payload.msg);
+            });
+
+            session.call("chat/add_func", [2, 5])
+
+            session.publish("acme/channel", {msg: "This is a message!"});
+
+            session.unsubscribe("acme/channel");
+
+            session.publish("acme/channel", {msg: "I won't see this"});
+        })
+
+        myClank.on("socket/disconnect", function(error){
+            //error provides us with some insight into the disconnection: error.reason and error.code
+
+            console.log("Disconnected for " + error.reason + " with code " + error.code);
+        })
+
+    </script>
+        {% block javascripts %}{% endblock %}
+    </body>
+</html>
