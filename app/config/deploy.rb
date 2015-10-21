@@ -32,23 +32,13 @@ set   :update_vendors,    false
 
 logger.level = Logger::MAX_LEVEL
 
-ssh_options[:forward_agent] = true
-
 before 'deploy:create_symlink', 'deploy:install_assets'
 
 after "deploy",           "deploy:set_perms_cache_logs"
 after "deploy",           "deploy:cleanup"
 
-namespace :deploy do
-  task :install_assets, :roles => :app do
-      run "cd #{release_path} && php app/console assets:install --env=prod --symlink"
-      run "cd #{release_path} && php app/console assetic:dump --env=prod --no-debug"
-      run "cd #{release_path} && php app/console cache:clear --env=prod"
-      run "cd #{release_path} && php app/console cache:warmup --env=prod"
-      run "cd #{release_path} && php app/console doctrine:schema:update --force"
-  end
-
-  task :set_perms_cache_logs, :roles => :app do
-    transfer :up, "web/app_dev.php", "/home/jedibee/processezy.com/current/web/devaccess.php"
-  end
-end
+# permissions
+set :writable_dirs, ["app/cache", "app/logs"]
+set :webserver_user, "www-data"
+set :permission_method, :acl
+set :use_set_permissions, false
