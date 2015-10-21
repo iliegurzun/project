@@ -45,8 +45,6 @@ namespace :deploy do
       run "cd #{release_path} && php app/console assetic:dump --env=prod --no-debug"
       run "cd #{release_path} && php app/console cache:clear --env=prod"
       run "cd #{release_path} && php app/console cache:warmup --env=prod"
-      run "chmod -R 777 #{release_path}/app/cache/"
-      run "chmod -R 777 #{release_path}/app/logs/"
       run "cd #{release_path} && php app/console doctrine:schema:update --force"
   end
 
