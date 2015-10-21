@@ -1,8 +1,8 @@
 set :application, "testing"
-set :deploy_to,   "/var/www"
+set :deploy_to,   "/home/ilie.gurzun/testing"
 set :app_path,    "app"
-set :user, "dev"
-set :password, "paroladev"
+set :user, "ilie.gurzun"
+set :password, "parolailie"
 
 set   :use_sudo,          false
 
@@ -11,7 +11,7 @@ set :git_https_password, 'parola'
 
 set :ssh_options, :forward_agent => true
 
-set :domain,      "127.0.0.1:3022"
+set :domain,      "svc1-dev"
 set :branch, 	  "master"
 
 set   :scm,               :git
