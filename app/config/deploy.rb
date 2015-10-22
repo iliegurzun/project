@@ -14,13 +14,11 @@ set :pty, true
 
 set :format, :pretty
 
-set :ssh_options, {
-    forward_agent: false,
-    auth_methods: %w(password),
-    password: 'parolailie'
-}
+ssh_options[:forward_agent] = true
+ssh_options[:use_agent] = false
+ssh_options[:keys] = [File.join(ENV["HOME"], ".ssh", "id_rsa")]
 
-set :domain,      "ilie.gurzun@svc1-dev"
+set :domain,      "127.0.0.1:3023"
 set :branch, 	  "master"
 
 set   :scm,               :git
