@@ -9,7 +9,16 @@ set   :use_sudo,          false
 set :git_https_username, 'iliegurzun'
 set :git_https_password, 'parola'
 
-set :ssh_options, :forward_agent => true
+set :pty, true
+
+set :format, :pretty
+
+set :ssh_options, {
+    forward_agent: false,
+    auth_methods: %w(password),
+    password: 'parolailie',
+    user: 'ilie.gurzun',
+}
 
 set :domain,      "svc1-dev"
 set :branch, 	  "master"
