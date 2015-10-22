@@ -32,7 +32,7 @@ role  :db,                domain, :primary => true
 set   :keep_releases,     3
 
 set   :deploy_via,        :remote_cache
-set :composer_options,  "--no-dev --verbose --optimize-autoloader --no-progress"
+set :composer_options,  "--verbose --optimize-autoloader --no-progress"
 
 # Assets install path
 set :assets_install_path,   fetch(:web_path)
