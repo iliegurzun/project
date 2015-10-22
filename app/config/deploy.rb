@@ -17,11 +17,10 @@ set :format, :pretty
 set :ssh_options, {
     forward_agent: false,
     auth_methods: %w(password),
-    password: 'parolailie',
-    user: 'ilie.gurzun',
+    password: 'parolailie'
 }
 
-set :domain,      "svc1-dev"
+set :domain,      "ilie.gurzun@svc1-dev"
 set :branch, 	  "master"
 
 set   :scm,               :git
