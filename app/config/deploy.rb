@@ -52,11 +52,6 @@ set   :update_vendors,    false
 
 logger.level = Logger::MAX_LEVEL
 
-before 'deploy:create_symlink', 'deploy:install_assets'
-
-after "deploy",           "deploy:set_perms_cache_logs"
-after "deploy",           "deploy:cleanup"
-
 # permissions
 set :writable_dirs, ["app/cache", "app/logs"]
 set :webserver_user, "www-data"
