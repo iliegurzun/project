@@ -2,7 +2,7 @@ set :application, "testing"
 set :deploy_to,   "/home/deploy/testing"
 set :app_path,    "app"
 set :user, "deploy"
-#set :password, "paroladeploy"
+set :password, "paroladeploy"
 default_run_options[:pty] = true
 set :interactive_mode, false
 
