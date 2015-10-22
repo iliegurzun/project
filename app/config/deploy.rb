@@ -2,7 +2,8 @@ set :application, "testing"
 set :deploy_to,   "/home/ilie.gurzun/testing"
 set :app_path,    "app"
 set :user, "ilie.gurzun"
-set :password, "parolailie"
+default_run_options[:pty] = true
+set :interactive_mode, false
 
 set   :use_sudo,          false
 
@@ -13,12 +14,9 @@ set :pty, true
 
 set :format, :pretty
 
-set :ssh_options, {
-    forward_agent: false,
-    auth_methods: %w(password),
-    password: 'parolailie',
-    user: 'ilie.gurzun',
-}
+ssh_options[:forward_agent] = true
+ssh_options[:use_agent] = true
+ssh_options[:keys] = [File.join(ENV["HOME"], ".ssh", "id_rsa.pub")]
 
 set :domain,      "svc1-dev"
 set :branch, 	  "master"
