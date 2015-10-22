@@ -2,7 +2,7 @@ set :application, "testing"
 set :deploy_to,   "/home/deploy/testing"
 set :app_path,    "app"
 set :user, "deploy"
-# set :password, "paroladev"
+set :password, "paroladeploy"
 default_run_options[:pty] = true
 set :interactive_mode, false
 
@@ -16,7 +16,7 @@ set :pty, true
 set :format, :pretty
 
 ssh_options[:forward_agent] = true
-ssh_options[:use_agent] = false
+#ssh_options[:use_agent] = false
 ssh_options[:keys] = [File.join(ENV["HOME"], ".ssh", "id_rsa")]
 
 set :domain,      "127.0.0.1"
