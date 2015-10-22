@@ -63,7 +63,7 @@ set :webserver_user, "www-data"
 set :permission_method, :acl
 set :use_set_permissions, false
 
-after 'deploy:updated',   'deploy:phpunit
+after 'deploy:updated',   'deploy:phpunit'
 
 	namespace :deploy do
 		task :phpunit, :roles => :app do
