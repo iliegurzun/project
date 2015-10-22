@@ -19,7 +19,7 @@ ssh_options[:forward_agent] = true
 #ssh_options[:use_agent] = false
 ssh_options[:keys] = [File.join(ENV["HOME"], ".ssh", "id_rsa")]
 
-set :domain,      "127.0.0.1"
+set :domain,      "127.0.0.1:3023"
 set :branch, 	  "master"
 
 set   :scm,               :git
@@ -52,7 +52,7 @@ set   :update_vendors,    false
 
 logger.level = Logger::MAX_LEVEL
 
-after 'deploy:updated',   'deploy:phpunit'
+after 'symfony:cache:warmup',   'deploy:phpunit'
 
 # permissions
 set :writable_dirs, ["app/cache", "app/logs"]
