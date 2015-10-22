@@ -31,7 +31,19 @@ role  :db,                domain, :primary => true
 
 set   :keep_releases,     3
 
-#set   :deploy_via,        :remote_cache
+set   :deploy_via,        :remote_cache
+set :composer_options,  "--no-dev --verbose --optimize-autoloader --no-progress"
+
+# Assets install path
+set :assets_install_path,   fetch(:web_path)
+
+# Assets install flags
+set :assets_install_flags,  '--symlink'
+
+set :dump_assetic_assets, true
+
+# Assetic dump flags
+set :assetic_dump_flags,  '--env=prod --no-debug'
 
 set   :shared_files,      ["app/config/parameters.yml"]
 set   :shared_children,   [app_path + "/logs", web_path + "/uploads", "vendor"]
