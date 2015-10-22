@@ -1,9 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="41349d27-8bd0-4b7f-86f6-922ddf1fd545" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/config/deploy.rb" afterPath="$PROJECT_DIR$/app/config/deploy.rb" />
-    </list>
+    <list default="true" id="41349d27-8bd0-4b7f-86f6-922ddf1fd545" name="Default" comment="" />
     <ignored path="ews.iws" />
     <ignored path=".idea/workspace.xml" />
     <ignored path=".idea/dataSources.local.xml" />
@@ -27,8 +25,8 @@
       <file leaf-file-name="deploy.rb" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/config/deploy.rb">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.478424">
-              <caret line="15" column="20" selection-start-line="15" selection-start-column="20" selection-end-line="15" selection-end-column="20" />
+            <state vertical-scroll-proportion="0.6697936">
+              <caret line="21" column="28" selection-start-line="21" selection-start-column="28" selection-end-line="21" selection-end-column="28" />
               <folding />
             </state>
           </provider>
@@ -114,7 +112,12 @@
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
               <caret line="24" column="0" selection-start-line="24" selection-start-column="0" selection-end-line="24" selection-end-column="0" />
-              <folding />
+              <folding>
+                <marker date="1445517230885" expanded="true" signature="113:760" placeholder="security:" />
+                <marker date="1445517230885" expanded="true" signature="224:276" placeholder="providers:" />
+                <marker date="1445517230885" expanded="true" signature="243:276" placeholder="in_memory:" />
+                <marker date="1445517230885" expanded="true" signature="281:760" placeholder="firewalls:" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -832,7 +835,12 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="24" column="0" selection-start-line="24" selection-start-column="0" selection-end-line="24" selection-end-column="0" />
-          <folding />
+          <folding>
+            <marker date="1445517230885" expanded="true" signature="113:760" placeholder="security:" />
+            <marker date="1445517230885" expanded="true" signature="224:276" placeholder="providers:" />
+            <marker date="1445517230885" expanded="true" signature="243:276" placeholder="in_memory:" />
+            <marker date="1445517230885" expanded="true" signature="281:760" placeholder="firewalls:" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -849,8 +857,8 @@
         <state />
       </provider>
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.478424">
-          <caret line="15" column="20" selection-start-line="15" selection-start-column="20" selection-end-line="15" selection-end-column="20" />
+        <state vertical-scroll-proportion="0.6697936">
+          <caret line="21" column="28" selection-start-line="21" selection-start-column="28" selection-end-line="21" selection-end-column="28" />
           <folding />
         </state>
       </provider>
