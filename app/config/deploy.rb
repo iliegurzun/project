@@ -16,7 +16,7 @@ set :format, :pretty
 
 ssh_options[:forward_agent] = true
 ssh_options[:use_agent] = true
-ssh_options[:keys] = [File.join(ENV["HOME"], ".ssh", "id_rsa.pub")]
+ssh_options[:keys] = [File.join(ENV["HOME"], ".ssh", "id_rsa")]
 
 set :domain,      "svc1-dev"
 set :branch, 	  "master"
