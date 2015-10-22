@@ -14,9 +14,12 @@ set :pty, true
 
 set :format, :pretty
 
-ssh_options[:forward_agent] = true
-ssh_options[:use_agent] = true
-ssh_options[:keys] = [File.join(ENV["HOME"], ".ssh", "id_rsa")]
+set :ssh_options, {
+    forward_agent: false,
+    auth_methods: %w(password),
+    password: 'parolailie',
+    user: 'ilie.gurzun',
+}
 
 set :domain,      "svc1-dev"
 set :branch, 	  "master"
