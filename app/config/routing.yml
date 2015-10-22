@@ -1,7 +1,3 @@
 app:
     resource: "@AppBundle/Controller/"
     type:     annotation
-
-cunningsoft_chat_bundle:
-    resource: "@CunningsoftChatBundle/Controller"
-    type: annotation

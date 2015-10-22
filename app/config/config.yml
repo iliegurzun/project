@@ -80,21 +80,3 @@ swiftmailer:
     username:  "%mailer_user%"
     password:  "%mailer_password%"
     spool:     { type: memory }
-clank:
-    web_socket_server:
-        port: 8080        #The port the socket server will listen on
-        host: 127.0.0.1
-    rpc:
-        -
-            name: "chat" #Important! this is the network namespace used to match calls to this service!
-            service: "app.chat_service" #The service id.
-
-fos_user:
-    db_driver: orm # other valid values are 'mongodb', 'couchdb' and 'propel'
-    firewall_name: main
-    user_class: AppBundle\Entity\User
-cunningsoft_chat:
-    # refresh interval in milliseconds
-    update_interval: 5000
-    # messages to be shown in chat
-    number_of_messages: 10
