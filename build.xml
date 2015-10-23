@@ -6,7 +6,7 @@
         <mkdir dir="${output}/phpcs/"/>
     </target>
 
-    <target name="build" depends="init, phpcs, phpcpd, test">
+    <target name="build" depends="init, phpcs, test">
     </target>
 
     <target name="test">
@@ -23,14 +23,6 @@
               			--report-file=${output}/phpcs/checkstyle.xml
               			--standard=Zend
               			${basedir}" />
-        </exec>
-    </target>
-
-    <target name="phpcpd">
-        <exec executable="phpcpd">
-            <arg line="
-				 --log-pmd ${output}/phpcpd.xml .
-			" />
         </exec>
     </target>
 </project>
