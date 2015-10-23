@@ -62,7 +62,7 @@ set :use_set_permissions, false
 
 namespace :deploy do
 	task :phpunit, :roles => :app do
-		run "cd #{release_path} && phpunit --verbose --debug -c app/ --coverage-clover=#{release_path}/../clover.xml"
-#		run "cd #{release_path} && ant"
+		run "rm #{deploy_to}/clover.xml"
+		run "cd #{release_path} && phpunit --verbose --debug -c app/ --coverage-clover=#{deploy_to}/clover.xml"
 	end
 end
