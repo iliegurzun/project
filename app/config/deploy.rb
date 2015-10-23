@@ -55,7 +55,7 @@ logger.level = Logger::MAX_LEVEL
 after 'symfony:cache:warmup',   'deploy:phpunit'
 
 # permissions
-set :writable_dirs, ["app/cache", "app/logs", "web/codeCoverage"]
+set :writable_dirs, ["app/cache", "app/logs"]
 set :webserver_user, "www-data"
 set :permission_method, :acl
 set :use_set_permissions, false
