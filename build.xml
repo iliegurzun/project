@@ -12,8 +12,8 @@
 
     <target name="test">
         <exec executable="phpunit" failonerror="true">
-            <arg line="--coverage-clover ${output}/CodeCoverage/clover.xml
-				--coverage-html ${output}/CodeCoverage/ 
+            <arg line="--coverage-clover ${output}/coverage/clover.xml
+				--coverage-html ${output}/coverage/
 				."/>
         </exec>
     </target>
