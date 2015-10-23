@@ -4,10 +4,9 @@
     <target name="init">
         <mkdir dir="${output}"/>
         <mkdir dir="${output}/phpcs/"/>
-        <mkdir dir="${output}/pdepend/"/>
     </target>
 
-    <target name="build" depends="init, test, phpcs, phpmd, phpcpd, pdepend">
+    <target name="build" depends="init, test, phpcs, phpmd, phpcpd">
     </target>
 
     <target name="test">
@@ -39,18 +38,6 @@
         <exec executable="phpcpd">
             <arg line="
 				 --log-pmd ${output}/phpcpd.xml .
-			" />
-        </exec>
-    </target>
-
-    <target name="pdepend">
-        <exec executable="pdepend">
-            <arg line="
-				--jdepend-xml=${output}/pdepend/jdepend.xml 
-				--jdepend-chart=${output}/pdepend/dependencies.svg 
-				--overview-pyramid=${output}/pdepend/overview-pyramid.svg 
-				--ignore=Tests/ 
-				.
 			" />
         </exec>
     </target>
