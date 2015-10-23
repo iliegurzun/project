@@ -6,7 +6,7 @@
     <property name="builddir" value="${workspace}/app/build" />
 
     <target name="build"
-            depends="prepare,lint,phploc,pdepend,phpmd-ci,phpcs-ci,phpunit"/>
+            depends="prepare,lint,pdepend,phpmd-ci,phpcs-ci,phpunit"/>
 
     <target name="build-parallel" depends="prepare,lint,tools-parallel,phpunit"/>
 
@@ -51,14 +51,6 @@
                 <modified />
             </fileset>
         </apply>
-    </target>
-
-    <target name="phploc" description="Measure project size using PHPLOC">
-        <exec executable="phploc">
-            <arg value="--log-csv" />
-            <arg value="${builddir}/logs/phploc.csv" />
-            <arg path="${sourcedir}" />
-        </exec>
     </target>
 
     <target name="pdepend" description="Calculate software metrics using PHP_Depend">
