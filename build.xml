@@ -6,7 +6,7 @@
     <property name="builddir" value="${workspace}/app/build" />
 
     <target name="build"
-            depends="prepare,lint"/>
+            depends="prepare,lint,phpunit"/>
 
     <target name="clean" description="Cleanup build artifacts">
         <delete dir="${builddir}/api"/>
@@ -37,11 +37,11 @@
         </apply>
     </target>
 
-    <!--<target name="phpunit" description="Run unit tests with PHPUnit">-->
-        <!--<exec executable="php ${basedir}/phpunit.phar" failonerror="true">-->
-            <!--<arg value="-c" />-->
-            <!--<arg path="${basedir}/app/phpunit.xml.dist" />-->
-        <!--</exec>-->
-    <!--</target>-->
+    <target name="phpunit" description="Run unit tests with PHPUnit">
+        <exec executable="php ${basedir}/phpunit.phar" failonerror="true">
+            <arg value="-c" />
+            <arg path="${basedir}/app/phpunit.xml.dist" />
+        </exec>
+    </target>
 
 </project>
