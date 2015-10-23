@@ -62,7 +62,7 @@ set :use_set_permissions, false
 
 namespace :deploy do
 	task :phpunit, :roles => :app do
-		run "cd #{release_path} && php phpunit.phar --verbose --debug -c app/"
+		run "cd #{release_path} && phpunit --verbose --debug -c app/"
 #		run "cd #{release_path} && ant"
 	end
 end
