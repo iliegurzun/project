@@ -1,0 +1,10 @@
+<project>
+    <target name="symfony.test-all"
+            description="Runs all the functional and unit test">
+        <exec executable="phpunit"
+              failonerror="true">
+            <arg value="-c" />
+            <arg value="app/" />
+        </exec>
+    </target>
+</project>

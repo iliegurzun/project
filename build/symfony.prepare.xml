@@ -1,0 +1,34 @@
+<project>
+    <target name="symfony.prepare">
+        <mkdir dir="${basedir}/app/cache" />
+        <mkdir dir="${basedir}/web/uploads" />
+        <copy file="${basedir}/app/config/parameters.yml.dist" tofile="${basedir}/app/config/parameters.yml" />
+        <exec executable="bash">
+            <arg value="-c" />
+            <arg value="curl -s http://getcomposer.org/installer | php" />
+        </exec>
+        <exec executable="php">
+            <arg value="composer.phar" />
+            <arg value="install" />
+        </exec>
+        <exec executable="app/console">
+            <arg value="doctrine:schema:update" />
+            <arg value="-n" />
+            <arg value="--complete" />
+            <arg value="--force" />
+        </exec>
+        <exec executable="app/console">
+            <arg value="assetic:dump" />
+            <arg value="-n" />
+            <arg value="--env=prod" />
+            <arg value="--no-debug" />
+        </exec>
+        <exec executable="app/console">
+            <arg value="assets:install" />
+            <arg value="-n" />
+            <arg value="--env=prod" />
+            <arg value="--no-debug" />
+            <arg value="web" />
+        </exec>
+    </target>
+</project>

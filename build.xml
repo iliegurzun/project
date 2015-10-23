@@ -105,19 +105,6 @@
         </exec>
     </target>
 
-    <target name="phpcpd" description="Find duplicate code using PHPCPD">
-        <exec executable="phpcpd">
-            <arg value="--log-pmd" />
-            <arg value="${builddir}/logs/pmd-cpd.xml" />
-            <arg path="${sourcedir}" />
-        </exec>
-    </target>
-
-    <target name="phpdoc" description="Generate API documentation using phpDox">
-        <exec executable="phpdoc">
-            <arg line="-d '${sourcedir}' -t '${builddir}/docs' --title='Tempo' " />
-        </exec>
-    </target>
 
     <target name="phpunit" description="Run unit tests with PHPUnit">
         <exec executable="php phpunit.phar" failonerror="true">
