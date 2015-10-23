@@ -32,7 +32,7 @@ role  :db,                domain, :primary => true
 set   :keep_releases,     3
 
 set   :deploy_via,        :remote_cache
-set :composer_options,  "--verbose --optimize-autoloader --no-progress"
+set :composer_options,  "--optimize-autoloader"
 
 # Assets install path
 set :assets_install_path,   fetch(:web_path)
@@ -62,6 +62,7 @@ set :use_set_permissions, false
 
 namespace :deploy do
 	task :phpunit, :roles => :app do
-		run "cd #{release_path} && ant"
+		run "cd #{release_path} && php phpunit.phar --verbose --debug -c app/"
+#		run "cd #{release_path} && ant"
 	end
 end
