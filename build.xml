@@ -6,7 +6,7 @@
         <mkdir dir="${output}/phpcs/"/>
     </target>
 
-    <target name="build" depends="init, test, phpcs, phpmd, phpcpd">
+    <target name="build" depends="init, phpcs, phpmd, phpcpd, test">
     </target>
 
     <target name="test">
