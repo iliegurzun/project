@@ -6,7 +6,7 @@
         <mkdir dir="${output}/phpcs/"/>
     </target>
 
-    <target name="build" depends="init, phpcs, phpmd, phpcpd, test">
+    <target name="build" depends="init, phpcs, phpcpd, test">
     </target>
 
     <target name="test">
@@ -23,14 +23,6 @@
               			--report-file=${output}/phpcs/checkstyle.xml
               			--standard=Zend
               			${basedir}" />
-        </exec>
-    </target>
-
-    <target name="phpmd">
-        <exec executable="phpmd">
-            <arg line="
-				 . xml codesize,unusedcode,naming,design --reportfile ${output}/messdetector.xml --exclude Tests/
-			" />
         </exec>
     </target>
 
