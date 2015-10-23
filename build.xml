@@ -113,15 +113,6 @@
         </exec>
     </target>
 
-    <phpunit codecoverage="true" haltonfailure="true" haltonerror="true">
-        <formatter type="clover" usefile="false"/>
-        <batchtest>
-            <fileset dir="tests">
-                <include name="**/*Test*.php"/>
-            </fileset>
-        </batchtest>
-    </phpunit>
-
     <target name="phpcb" description="Aggregate tool output with PHP_CodeBrowser">
         <exec executable="phpcb">
             <arg value="--log" />
