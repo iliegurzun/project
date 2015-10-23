@@ -19,7 +19,7 @@ ssh_options[:forward_agent] = true
 #ssh_options[:use_agent] = false
 ssh_options[:keys] = [File.join(ENV["HOME"], ".ssh", "id_rsa")]
 
-set :domain,      "127.0.0.1"
+set :domain,      "127.0.0.1:3023"
 set :branch, 	  "master"
 
 set   :scm,               :git
@@ -62,7 +62,7 @@ set :use_set_permissions, false
 
 namespace :deploy do
 	task :phpunit, :roles => :app do
-		run "cd #{release_path} && phpunit --verbose --debug -c app/"
+		run "cd #{release_path} && phpunit --verbose --debug -c app/ --coverage-clover=#{release_path}/../clover"
 #		run "cd #{release_path} && ant"
 	end
 end
