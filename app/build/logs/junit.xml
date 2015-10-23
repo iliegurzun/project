@@ -1,8 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<testsuites>
-  <testsuite name="Project Test Suite" tests="1" assertions="2" failures="0" errors="0" time="0.168227">
-    <testsuite name="AppBundle\Tests\Controller\DefaultControllerTest" file="/home/dev/project/src/AppBundle/Tests/Controller/DefaultControllerTest.php" tests="1" assertions="2" failures="0" errors="0" time="0.168227">
-      <testcase name="testIndex" class="AppBundle\Tests\Controller\DefaultControllerTest" file="/home/dev/project/src/AppBundle/Tests/Controller/DefaultControllerTest.php" line="9" assertions="2" time="0.168227"/>
-    </testsuite>
-  </testsuite>
-</testsuites>
