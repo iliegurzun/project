@@ -18,7 +18,12 @@ class CodeCoverageCommand extends ContainerAwareCommand
 {
     const FILE_PATH = '/home/deploy/testing/clover.xml';
 
-    const COVERAGE = 80;
+    const COVERAGE = 0.8;
+
+    protected $covered = 0;
+
+    protected $total = 0;
+
     /**
      * command configuration
      */
@@ -39,9 +44,36 @@ class CodeCoverageCommand extends ContainerAwareCommand
         $filepath = $input->getOption('file');
         if (file_exists($filepath)) {
             $xml = simplexml_load_file($filepath);
-            dump($xml);die;
+            $array = json_decode(json_encode($xml), true);
+            foreach ($array['project']['package'] as $file) {
+                if (isset($file['file']['metrics'])) {
+                $fileAttributes = $file['file']['metrics']['@attributes'];
+                $this->updatePercentage($fileAttributes);
+                } else {
+                    foreach ($file['file'] as $subfile) {
+                        $fileAttributes = $subfile['metrics']['@attributes'];
+                        $this->updatePercentage($fileAttributes);
+                    }
+                }
+            }
+            $coverage = $this->covered / $this->total;
+            if ($coverage < self::COVERAGE) {
+                throw new \Exception(sprintf('Code coverage of %s not reached... The current coverage is %s.', self::COVERAGE, $coverage));
+            }
         } else {
             exit(sprintf('Failed to open %s.', $filepath));
         }
+    }
+
+    protected function updatePercentage($fileAttributes)
+    {
+        if (isset($fileAttributes['methods'])) {
+            $this->total += intval($fileAttributes['methods']);
+        }
+        $this->total += intval($fileAttributes['conditionals']);
+        $this->total += intval($fileAttributes['statements']);
+        $this->covered +=intval($fileAttributes['coveredmethods']);
+        $this->covered +=intval($fileAttributes['coveredconditionals']);
+        $this->covered +=intval($fileAttributes['coveredstatements']);
     }
 }
